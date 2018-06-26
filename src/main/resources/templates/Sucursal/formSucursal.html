@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+
+
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container py-4">
+
+<div class="card bg-light">
+	<div class="card-header text-white bg-dark">Sucursal</div>
+			<div class="card-body">
+
+<div th:object="${sucursal}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
+						role="alert">
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
+				</div>
+				
+					<form th:action="@{/sucursal/save}" th:object="${sucursal}" method="post">
+					
+					
+					<div class="form-group row">
+						<label for="nombresucursal" class="col-sm-2 col-form-label">NOMBRE</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{nombresucursal}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('nombresucursal')}" th:errors="*{nombresucursal}"></small>
+						</div>
+					</div>
+					
+				<div class="form-group row">
+						<label for="direccionsucursal" class="col-sm-2 col-form-label">DIRECCION</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{direccionsucursal}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('direccionsucursal')}" th:errors="*{direccionsucursal}"></small>
+						</div>
+					</div>
+				
+				
+					<div class="form-group row">
+						<label for="localidadsucursal" class="col-sm-2 col-form-label">LOCALIDAD</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{localidadsucursal}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('localidadsucursal')}" th:errors="*{localidadsucursal}"></small>
+						</div>
+					</div>
+				
+				<div class="form-group row">
+						<label for="provinciasucursal" class="col-sm-2 col-form-label">PROVINCIA</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{provinciasucursal}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('provinciasucursal')}" th:errors="*{provinciasucursal}"></small>
+						</div>
+					</div>
+					
+					
+					<div class="form-group row">
+						<label for="telefonosucursal" class="col-sm-2 col-form-label">TELEFONO</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{telefonosucursal}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('telefonosucursal')}" th:errors="*{telefonosucursal}"></small>
+						</div>
+					</div>
+				
+				
+				<div class="form-group row">
+						<label for="emailsucursal" class="col-sm-2 col-form-label">CORREO</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{emailsucursal}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('emailsucursal')}" th:errors="*{emailsucursal}"></small>
+						</div>
+					</div>
+				
+				
+					<div class="form-group row">
+						<label for="horarioatencion" class="col-sm-2 col-form-label">HORARIO ATENCION</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{horarioatencion}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('horarioatencion')}" th:errors="*{horarioatencion}"></small>
+						</div>
+					</div>
+				
+				
+				
+				
+				
+				
+				
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input type="submit" th:value="${title}"
+								class="btn btn-primary" />
+						</div>
+					</div>
+				
+				
+				
+				
+				</form>
+				</div>
+				</div>
+
+
+</div>
+
+</body>
+</html>

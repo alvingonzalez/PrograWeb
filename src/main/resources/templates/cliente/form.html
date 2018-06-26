@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+			<div class="card-header text-white bg-dark">Cliente</div>
+			<div class="card-body">
+
+			
+				<form th:action="@{/clientes/save}" th:object="${cliente}"
+					method="post">
+
+					<div class="form-group">
+						<div class="col-sm-10">
+							<input type="hidden" class="form-control" th:field="*{idcliente}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="nombrecliente" class="col-sm-2 col-form-label">Nombre</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{nombrecliente}"
+								class="form-control" th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('nombrecliente')}" th:errors="*{nombrecliente}"></small>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="apellido" class="col-sm-2 col-form-label">Apellido</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{apellidocliente}"
+								class="form-control" th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('apellidocliente')}"
+								th:errors="*{apellidocliente}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="dni" class="col-sm-2 col-form-label">DNI</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{dnicliente}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> 
+								<small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('dnicliente')}"
+								th:errors="*{dnicliente}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="nombreempresa" class="col-sm-2 col-form-label">Nombre
+							Empresa</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{nombreempresa}"
+								class="form-control" th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('nombreempresa')}"
+								th:errors="*{nombreempresa}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="correo" class="col-sm-2 col-form-label">Correo</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{correocliente}"
+								class="form-control" th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger"
+								th:if="${#fields.hasErrors('correocliente')}"
+								th:errors="*{correocliente}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="rucempresa" class="col-sm-2 col-form-label">Ruc
+							Empresa</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{rucempresa}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('rucempresa')}"
+								th:errors="*{rucempresa}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="pais" class="col-sm-2 col-form-label">Pais</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{pais}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input type="submit" th:value="${title}" class="btn btn-primary" />
+
+						</div>
+					</div>
+
+
+
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
